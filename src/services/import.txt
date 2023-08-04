@@ -1,0 +1,21 @@
+npm i react-toastify
+
+npm i styled-components
+
+npm i @reduxjs/toolkit
+
+npm i redux
+
+npm i react-redux
+
+npm i formik
+
+npm i yup
+
+npm i prop-types
+
+npm i nanoid
+
+npm i react-loader-spinner
+
+npm i axios
