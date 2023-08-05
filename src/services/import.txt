@@ -19,3 +19,5 @@ npm i nanoid
 npm i react-loader-spinner
 
 npm i axios
+
+npm i react-icons
