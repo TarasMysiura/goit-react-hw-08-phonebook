@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export const Container = styled.div`
@@ -49,5 +50,8 @@ export const TextP2 = styled.p`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+`;
+export const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
 `;
 

@@ -5,6 +5,7 @@ import { Loader } from './Loader/Loader';
 import { Route, Routes } from 'react-router-dom';
 import css from './App.module.css';
 import Layout from './Loyaut/Loyaut';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
@@ -15,16 +16,20 @@ export const App = () => {
   return (
     <div className={css.container}>
       <Layout></Layout>
-      {/* </nav>
-        {/* <div className="css.line">fzbvcnb </div> */}
-      {/* </header> */}
       <main>
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/contacts" element={<ContactsPage />} />
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute redirectTo="/login">
+                  <ContactsPage />
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </Suspense>
         <ToastContainer />

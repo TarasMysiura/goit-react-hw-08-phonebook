@@ -3,9 +3,9 @@ import css from './RegisterPage.module.css';
 import React from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAuthentificated } from 'redux/authSlice';
 import { registerUserThunk } from 'redux/authOperations';
 import { Navigate } from 'react-router-dom';
+import { selectAuthentificated } from 'redux/selectors';
 
 const RegisterPage = () => {
   const [form] = Form.useForm();

@@ -2,18 +2,20 @@ import React from 'react';
 import {
   Container,
   ImageGif,
+  StyledNavLink,
   TextP1,
   TextP2,
   TitleH2,
 } from './HomePage.styled';
 import { useSelector } from 'react-redux';
-import { selectAuthentificated } from 'redux/authSlice';
+import { selectAuthentificated, selectUserData } from 'redux/selectors';
 
 const HomePage = () => {
   const authentificated = useSelector(selectAuthentificated);
+  const userName = useSelector(selectUserData)
+  console.log('userName: ', userName);
 
   return (
-    // <>
     <Container>
       {!authentificated ? (
         <div>
@@ -25,30 +27,39 @@ const HomePage = () => {
           />
           <TextP1>Now you will exactly not forget your contacts!</TextP1>
           <TextP2>
-            Please,&nbsp;<b>Sign up</b>&nbsp;or&nbsp;<b>Log in</b>&nbsp;to have
-            access to the Phonebook!
+            Please,&nbsp;
+            <StyledNavLink to="/register">
+              <b>Sign up</b>
+            </StyledNavLink>
+            &nbsp;or&nbsp;
+            <StyledNavLink to="/login">
+              <b>Log in</b>
+            </StyledNavLink>
+            &nbsp;to have access to the Phonebook!
           </TextP2>
         </div>
       ) : (
         <div>
-          <TitleH2>Welcome</TitleH2>
+          <TitleH2>Hi, {userName.name}</TitleH2>
           <ImageGif
             src="https://vgif.ru/gifs/130/vgif-ru-10226.gif"
-            alt="Welcome"
+            alt="Phone"
             width="300px "
           />
-          <TextP1>Now you will exactly not forget your contacts!</TextP1>
+          <TextP1>Now you can view your contacts!</TextP1>
           <TextP2>
-            Please,&nbsp;<b>Sign up</b>&nbsp;or&nbsp;<b>Log in</b>&nbsp;to have
-            access to the Phonebook!
+            Please, follow the link &nbsp;
+            <StyledNavLink to="/contacts">
+              <b>Contacts</b>
+            </StyledNavLink>
+            &nbsp;!
           </TextP2>
         </div>
       )}
     </Container>
-    // </>
   );
 };
 
-// 
+//
 
 export default HomePage;

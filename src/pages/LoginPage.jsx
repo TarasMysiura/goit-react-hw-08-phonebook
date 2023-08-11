@@ -3,9 +3,9 @@ import css from './RegisterPage.module.css';
 import React from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAuthentificated } from 'redux/authSlice';
 import { loginUserThunk } from 'redux/authOperations';
 import { Navigate } from 'react-router-dom';
+import { selectAuthentificated } from 'redux/selectors';
 
 const LoginPage = () => {
   const [form] = Form.useForm();
@@ -14,7 +14,7 @@ const LoginPage = () => {
 
   const onFinish = values => {
     dispatch(loginUserThunk(values));
-    console.log('values: ', values);
+    // console.log('values: ', values);
     form.resetFields();
   };
 
@@ -22,10 +22,7 @@ const LoginPage = () => {
     console.log('Failed:', errorInfo);
   };
 
-  
-  if (authentificated) 
-    return <Navigate to="/contacts" activeClassName="active" />;
-  
+  if (authentificated) return <Navigate to="/contacts" />;
 
   return (
     <div className={css.container}>
