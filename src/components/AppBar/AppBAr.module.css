@@ -1,0 +1,23 @@
+.navButton {
+  color: rgb(10, 4, 33);
+  background-color: transparent;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  color: #edecdb;
+  font-size: 26px;
+  font-weight: 700;
+}
+.navButton:hover, .navButton:focus{
+    color: #6a0933;
+}
+
+
+
+.toolbar{
+    display: flex;
+    justify-content: space-between;
+}
+.auth{
+    display: flex;
+    gap: 20px
+}

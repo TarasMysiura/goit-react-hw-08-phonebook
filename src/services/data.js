@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const toastConfig = {
   position: 'top-center',
   autoClose: 1500,
@@ -12,4 +14,6 @@ export const toastConfig = {
   },
 };
 
-export const DEFAULTS_URL = 'https://64c6c32a0a25021fde91eef7.mockapi.io'
+export const $instance = axios.create({
+  baseURL: 'https://connections-api.herokuapp.com',
+});

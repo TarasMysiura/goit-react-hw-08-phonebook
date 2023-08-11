@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  fetchAddContactsThunk,
-  fetchDelContactsThunk,
-  fetchGetContactsThunk,
+  addContactThunk,
+  deleteContactThunk,
+  requestContactsThunk,
 } from './contactsOperations';
 
 const handlePending = state => {
@@ -26,24 +26,24 @@ const contactsSlice = createSlice({
   extraReducers: builder =>
     builder
       //!=====================Get Contact====================
-      .addCase(fetchGetContactsThunk.pending, handlePending)
-      .addCase(fetchGetContactsThunk.fulfilled, (state, action) => {
+      .addCase(requestContactsThunk.pending, handlePending)
+      .addCase(requestContactsThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
       })
-      .addCase(fetchGetContactsThunk.rejected, handleRejected)
+      .addCase(requestContactsThunk.rejected, handleRejected)
       //!=====================Add Contact====================
-      .addCase(fetchAddContactsThunk.pending, handlePending)
-      .addCase(fetchAddContactsThunk.fulfilled, (state, action) => {
+      .addCase(addContactThunk.pending, handlePending)
+      .addCase(addContactThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items.push(action.payload);
       })
-      .addCase(fetchAddContactsThunk.rejected, handleRejected)
+      .addCase(addContactThunk.rejected, handleRejected)
       //!=====================Delete Contact====================
-      .addCase(fetchDelContactsThunk.pending, handlePending)
-      .addCase(fetchDelContactsThunk.fulfilled, (state, action) => {
+      .addCase(deleteContactThunk.pending, handlePending)
+      .addCase(deleteContactThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
@@ -51,7 +51,7 @@ const contactsSlice = createSlice({
         );
         state.items.splice(index, 1);
       })
-      .addCase(fetchDelContactsThunk.rejected, handleRejected),
+      .addCase(deleteContactThunk.rejected, handleRejected),
 });
 
 export const { addContact, removeContact, setIsLoading, setError } =

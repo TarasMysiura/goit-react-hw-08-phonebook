@@ -1,53 +1,35 @@
-import { PhonebookForm } from './PhonebookForm/PhonebookForm';
-import { ContactList } from './ContactList/ContactList';
-import { TitleH2 } from './App.styled';
-import { Filter } from './Filter/Filter';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectContactsList,
-  selectError,
-  selectIsLoading,
-} from 'redux/selectors';
-import { useEffect } from 'react';
-import { fetchGetContactsThunk } from 'redux/contactsOperations';
+import { Suspense, lazy } from 'react';
 import { Loader } from './Loader/Loader';
+import { Route, Routes } from 'react-router-dom';
+import css from './App.module.css';
+import Layout from './Loyaut/Loyaut';
+
+const HomePage = lazy(() => import('pages/HomePage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage'));
 
 export const App = () => {
-  const contacts = useSelector(selectContactsList);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-  
-  const dispatch = useDispatch();
-  
-  useEffect(() => {
-    dispatch(fetchGetContactsThunk());
-  }, [dispatch]);
-
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-        paddingTop: 50,
-      }}
-    >
-      <PhonebookForm title="Phonebook"></PhonebookForm>
-      <TitleH2>Contacts</TitleH2>
-
-      {contacts.length > 0 && (
-        <>
-          <Filter />
-          {isLoading && !error && <Loader/>}
-          <ContactList />
-        </>
-      )}
-      <ToastContainer />
+    <div className={css.container}>
+      <Layout></Layout>
+      {/* </nav>
+        {/* <div className="css.line">fzbvcnb </div> */}
+      {/* </header> */}
+      <main>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/contacts" element={<ContactsPage />} />
+          </Routes>
+        </Suspense>
+        <ToastContainer />
+      </main>
+      <footer></footer>
     </div>
   );
 };

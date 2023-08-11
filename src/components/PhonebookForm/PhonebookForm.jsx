@@ -8,12 +8,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { nanoid } from 'nanoid';
 import { toastConfig } from 'services/data';
-import { fetchAddContactsThunk } from 'redux/contactsOperations';
+import { addContactThunk } from 'redux/contactsOperations';
 import { selectContactsList } from 'redux/selectors';
 
 const schema = yup.object().shape({
   name: yup.string('no valid name').required('Required'),
-  phone: yup.number('no valid name').required('Required').positive().integer(),
+  number: yup.number('no valid name').required('Required').positive().integer(),
 });
 
 export const PhonebookForm = ({ title }) => {
@@ -36,7 +36,7 @@ export const PhonebookForm = ({ title }) => {
       ...values,
     };
 
-    dispatch(fetchAddContactsThunk(finalContact));
+    dispatch(addContactThunk(finalContact));
   };
 
   const handleSubmit = (values, { resetForm }) => {
@@ -50,7 +50,7 @@ export const PhonebookForm = ({ title }) => {
       <Formik
         initialValues={{
           name: '',
-          phone: '',
+          number: '',
         }}
         onSubmit={handleSubmit}
         validationSchema={schema}
@@ -71,10 +71,10 @@ export const PhonebookForm = ({ title }) => {
             <Field
               className={css.input}
               type="tel"
-              name="phone"
+              name="number"
               autoComplete="true"
             />
-            <FormError name="phone" />
+            <FormError name="number" />
           </label>
 
           <button type="submit" className={css.button}>

@@ -21,3 +21,7 @@ npm i react-loader-spinner
 npm i axios
 
 npm i react-icons
+
+npm i browser-router
+
+npm i react-router-dom
