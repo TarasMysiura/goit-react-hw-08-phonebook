@@ -1,9 +1,9 @@
-.container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
-    align-items: center;
+  align-items: center;
 }
 
 .title {
@@ -29,22 +29,24 @@
   gap: 10px;
   /* justify-content: baseline; */
   margin-bottom: 20px;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .label {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
   gap: 8px;
-  /* margin-bottom: 20px; */
-}
-
-.span {
   font-family: 'Roboto', sans-serif;
   color: #111111;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 40px;
+  font-weight: 500; */
 }
+
+/* .span {
+  font-family: 'Roboto', sans-serif;
+  color: #111111;
+  font-size: 32px;
+  font-weight: 500;
+} */
 
 .input {
   width: 250px;
@@ -60,5 +62,3 @@
   cursor: pointer;
   background-color: aqua;
 }
-
-

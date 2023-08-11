@@ -7,17 +7,21 @@
   font-size: 26px;
   font-weight: 700;
 }
-.navButton:hover, .navButton:focus{
-    color: #6a0933;
+.navButton:hover,
+.navButton:focus,
+.navButton:active {
+  color: #6a0933;
 }
 
-
-
-.toolbar{
-    display: flex;
-    justify-content: space-between;
+.toolbar {
+  display: flex;
+  justify-content: space-between;
 }
-.auth{
-    display: flex;
-    gap: 20px
+.authTrue {
+  display: flex;
+  gap: 20px;
+}
+.authFalse {
+  display: flex;
+  gap: 20px;
 }

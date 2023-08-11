@@ -1,3 +1,5 @@
+import css from './RegisterPage.module.css';
+
 import React from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,57 +22,66 @@ const LoginPage = () => {
     console.log('Failed:', errorInfo);
   };
 
-  if (authentificated) return <Navigate to="/contacts" />;
+  
+  if (authentificated) 
+    return <Navigate to="/contacts" activeClassName="active" />;
+  
 
   return (
-    <Form
-      name="basic"
-      form={form}
-      labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
-      style={{
-        maxWidth: 600,
-      }}
-      initialValues={{
-        email: '',
-        password: '',
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="on"
-    >
-      <Form.Item
-        label="Email"
-        name="email"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your email!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+    <div className={css.container}>
+      <h2 className={css.title}>Log in your account</h2>
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your password!',
-          },
-        ]}
+      <Form
+        className={css.formStyle}
+        name="basic"
+        form={form}
+        labelCol={{
+          span: 8,
+        }}
+        wrapperCol={{
+          span: 16,
+        }}
+        style={{
+          maxWidth: 600,
+        }}
+        initialValues={{
+          email: '',
+          password: '',
+          remember: true,
+        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="on"
       >
-        <Input.Password />
-      </Form.Item>
+        <Form.Item
+          className={css.label}
+          label="Email"
+          name="email"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your email!',
+            },
+          ]}
+        >
+          <Input className={css.input} />
+        </Form.Item>
 
-      {/* <Form.Item
+        <Form.Item
+          className={css.label}
+          label="Password"
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: 'Please input your password!',
+            },
+          ]}
+        >
+          <Input.Password className={css.input} />
+        </Form.Item>
+
+        {/* <Form.Item
       name="remember"
       valuePropName="checked"
       wrapperCol={{
@@ -81,17 +92,18 @@ const LoginPage = () => {
       <Checkbox>Remember me</Checkbox>
     </Form.Item> */}
 
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button type="primary" htmlType="submit">
-          Log in
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item
+          wrapperCol={{
+            offset: 8,
+            span: 16,
+          }}
+        >
+          <Button type="primary" htmlType="submit">
+            Log in
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
   );
 };
 

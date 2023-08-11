@@ -27,14 +27,16 @@ export default function ButtonAppBar() {
       <AppBar>
         <Toolbar className={css.toolbar}>
           <NavLink to="/">
-            <button className={css.navButton}>Home</button>
+            <button className={css.navButton} activeClassName="active">
+              Home
+            </button>
           </NavLink>
           {authentificated ? (
-            <div className={css.auth}>
+            <div className={css.authTrue}>
               <NavLink to="/contacts">
                 <button className={css.navButton}>Contacts</button>
               </NavLink>
-              <NavLink to="/">
+              <NavLink to="/" activeClassName="active">
                 <button className={css.navButton} onClick={handleLogOut}>
                   Log out
                 </button>
