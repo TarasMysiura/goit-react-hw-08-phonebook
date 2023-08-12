@@ -1,11 +1,5 @@
 import { styled } from 'styled-components';
-import Toolbar from '@mui/material/Toolbar';
 import { NavLink } from 'react-router-dom';
-
-export const StyledToolbar = styled(Toolbar)`
-  display: flex;
-  justify-content: space-between;
-`;
 
 export const StyledNavLink = styled(NavLink)`
   background-color: transparent;
@@ -17,11 +11,26 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 700;
   cursor: pointer;
   &.active {
+    /* background-color: #fff; */
     color: #6a0933;
   }
 `;
 
-export const AuthFalse = styled.div`
+export const User = styled.p`
+  font-family: 'Roboto', sans-serif;
+  color: #222222;
+  font-size: 26px;
+  font-weight: 700;
+`;
+export const Span = styled.span`
+  font-family: 'Roboto', sans-serif;
+  color: #ff9900;
+  font-size: 26px;
+  font-weight: 700;
+`;
+
+export const AuthTrue = styled.div`
+  width: 55%;
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
 `;

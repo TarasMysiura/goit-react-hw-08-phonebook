@@ -13,7 +13,6 @@ import { selectAuthentificated, selectUserData } from 'redux/selectors';
 const HomePage = () => {
   const authentificated = useSelector(selectAuthentificated);
   const userName = useSelector(selectUserData)
-  console.log('userName: ', userName);
 
   return (
     <Container>
