@@ -1,7 +1,7 @@
 import css from './RegisterPage.module.css';
 
 import React from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUserThunk } from 'redux/authOperations';
 import { Navigate } from 'react-router-dom';
