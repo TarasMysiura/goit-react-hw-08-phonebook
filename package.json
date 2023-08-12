@@ -4,12 +4,8 @@
   "private": true,
   "homepage": "https://tarasmysiura.github.io/goit-react-hw-08-phonebook/",
   "dependencies": {
-    "@chakra-ui/react": "^2.8.0",
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-free": "^6.4.2",
     "@mui/icons-material": "^5.14.3",
-    "@mui/material": "^5.14.3",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
